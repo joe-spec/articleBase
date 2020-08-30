@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .container
+        .row
+            .col
+                h1 Add Article
+                form(action="/articles/add#articles", method='post')
+                    .form-group
+                        label(for="title") Title
+                        input(type="text", name="title" required).form-control#title
+                    .form-group
+                        label(for="body") Body
+                        textarea(name="body", cols="30", rows="5" required).form-control#body
+                    input(type="submit" value="Add Article").btn.btn-outline-primary

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    section#singleArticle
+        .container.py-4.pb-5.mb-5
+            .row
+                .col
+                    h1.text-center= article.title
+                    h5.text-md-right _Writen by #{author.name}
+                    p.lead.my-3.text-center= article.body
+                    hr
+                    if user
+                        if user.id == article.author
+                            a.btn.btn-default(href="/articles/edit/"+article._id) Edit
+                            a.btn.btn-danger.delete-article.ml-auto(href="#", data-id=article._id) Delete

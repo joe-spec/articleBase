@@ -1,0 +1,74 @@
+extends layout
+
+block content
+    section#banner
+        .dark-overlay
+        .container
+            .row
+                .col.text-center
+                    if user
+                        h2.display-3.mt-3 Welcome
+                        h2.display-3 #{user.name}
+                        p.lead.text-light HAPPY ARTICULATING
+                    else
+                        h2.display-3.mt-3 Welcome To Article Base
+    section#banner2.py-5.text-center
+        .container
+            .row
+                .col-12
+                    h1 Briefing
+                    p.lead ArticleBase is a free platform that allows you to Create, Read, Update and Delete articles.
+                    hr
+                .col-md-4.p-2
+                    i.fa.fa-user
+                    h3 Become A Member
+                    p You can not Create, Read, Update and Delete articles if you are not a member, being a member gives you the access of Create, Read, Update and Delete articles.
+                .col-md-4.p-2
+                    i.fa.fa-edit
+                    h3 Writing Articles
+                    p After Registration completes, and you are loged in, you then, is a master of your own article, 
+                .col-md-4.p-2
+                    i.fa.fa-plus
+                    h3 Add Articles
+                    p you can add, delete and edit articles that belong to you.
+    section#banner3
+        .dark-overlay
+            .container.py-4
+                h3 Get Started
+                if !user
+                    p It is said, 'action speaks louder than words', what if we just skip into action rather than talking, if you are not a member with ArticleBase, then click here to 
+                        a(href="/users/register") register
+                else
+                    p It is said, 'action speaks louder than words', you want to showcase your articles, then click here to 
+                         a(href="/articles/add") add article
+    section#articles.py-4
+        .container.body
+            .row
+                .col-lg-8
+                    h1 Articles
+                    if articles
+                        ul.list-group
+                            each article, i in articles
+                                li.list-group-item.d-flex
+                                    a(href="/articles/"+article._id)
+                                        i.fa.fa-book-open  #{article.title} 
+                                        p Read this article
+                                    if user
+                                        if user.id == article.author
+                                            a.text-default.ml-auto(href="/articles/edit/"+article._id) Edit
+                                            a.text-danger.delete-article.ml-2(href="#", data-id=article._id) Delete
+                    else
+                        .alert.alert-warning No Articles Yet
+                .col-lg-4
+                    h1 FAQ/Comments
+                    .comment
+                        each comment, i in comments
+                            span 
+                                i.fas.fa-user  Anonymous::  
+                            span  #{comment.comment} 
+                            br
+                    form(action="/#articles", method='post').mt-4
+                        .form-group
+                            label(for="comment") Whats on your mind
+                            textarea#comment(name="comment", cols="30", rows="1").form-control
+                        input(type="submit" value="Post").btn.btn-outline-primary#btn

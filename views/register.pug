@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    .container
+        != messages('message')
+        .row
+            .col-md-8.mx-auto
+                h1 Register
+                .alert.alert-danger Please carefully fill up all fields.
+                    ul.p-2
+                        li Email should be valid, incase of messaging.
+                        li Password should be atleast 8 characters long.
+                form(action="/users/register", method='post')
+                    .form-group
+                        label(for="name") Name
+                        input(type="text", name="name" required).form-control#name
+                    .form-group
+                        label(for="email") Email
+                        input(type="email", name="email" required).form-control#email
+                    .form-group
+                        label(for="username") Username
+                        input(type="text" name="username", required).form-control#username
+                    .form-group
+                        label(for="password") Password
+                        input(type="password" name="password", required).form-control#password
+                    .form-group
+                        label(for="password2") Confirm password
+                        input(type="password" name="password2", required).form-control#password2
+                    input(type="submit" value="Register").btn.btn-outline-primary
+                    p.pt-3 Have an account? 
+                        a.text-danger(href="/users/login") Login

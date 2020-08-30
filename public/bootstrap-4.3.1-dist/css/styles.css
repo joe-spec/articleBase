@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+li a{
+    color: teal;
+}
+li a:hover{
+    text-decoration: none;
+    color: lightseagreen;
+}
+#banner{
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    background: url(../../images/img3.jpeg) no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+#banner h2{
+    font-weight: bolder;
+    font-family: peb;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: teal;
+    color: transparent;
+}
+#banner h2:nth-child(2){
+    animation: user 2s infinite both;
+}
+@keyframes user{
+    0%{
+        transform: translateY(-15%);
+    }
+    50%{
+        transform: translateY(15%);
+    }
+    100%{
+        transform: translateY(-15%);
+    }
+}
+h1, h3{
+    color: teal;
+}
+#banner a{
+    color: white;
+    font-size: 17px;
+    background: teal;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+#banner p a:hover{
+    text-decoration: none;
+}
+.dropdown-menu{
+    background: rgb(94, 94, 94);
+    padding: 0;
+}
+.dropdown-menu .dropdown-item:hover{
+    background: rgb(94, 94, 94);
+}
+#banner2 .fa{
+    font-size: 55px;
+    color: teal;
+}
+#banner2 .col-md-4:hover{
+    background: teal;
+}
+#banner2 .col-md-4:hover h3{
+    color: white;
+}
+#banner2 .col-md-4:hover p{
+    color: whitesmoke;
+}
+#banner2 .col-md-4:hover .fa{
+    color: white;
+}
+#navbarDropdown{
+    background: teal;
+    padding: 3px 10px;
+    border-radius: 7px;
+}
+#banner3{
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    background: url(../../images/img5.jpeg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: white;
+}
+
+.dark-overlay{
+    position: absolute;
+    background-color: black;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+h1{
+    font-weight: bolder;
+    font-family: peb;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: teal;
+    color: transparent;
+}  
+footer p:nth-child(2){
+    margin-top: -100px;
+}

@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    .container
+            .row
+                .col-md-6.mx-auto
+                    h1 Login
+                    form(action="/users/login", method='post')
+                        .form-group
+                            label(for="username") Username
+                            input(type="text" name="username", required).form-control#username
+                        .form-group
+                            label(for="password") Password
+                            input(type="password" name="password", required).form-control#password
+                        input(type="submit" value="Login").btn.btn-outline-primary
+                        p.pt-3 Don't have an account? 
+                            a.text-danger(href="/users/register") Register
